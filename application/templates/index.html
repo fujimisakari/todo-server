@@ -1,0 +1,41 @@
+{% load static swampdragon_tags %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+Here be dragons!
+
+<!-- AngularJS -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+
+{% swampdragon_settings %}
+<script type="text/javascript" src="{% static 'swampdragon/js/dist/swampdragon.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'swampdragon/js/dist/datamapper.js' %}"></script>
+<script type="text/javascript" src="{% static 'swampdragon/js/angular/services.js' %}"></script>
+
+<!-- To-do app -->
+<script type="text/javascript" src="{% static 'controllers.js' %}"></script>
+<script type="text/javascript" src="{% static 'app.js' %}"></script>
+
+{% verbatim %}
+<div ng-app="TodoApp" ng-controller="TodoListCtrl">
+    <h3>{{ todoList.name }}</h3>
+    <pre>{{ todoList.description }}</pre>
+
+    <ul>
+        <li ng-repeat="item in todoItems">
+            {{ item.text }}
+            <button type="button" ng-click="itemDone(item)">
+                check
+            </button>
+            <span ng-show="item.done">done!</span>
+        </li>
+    </ul>
+</div>
+{% endverbatim %}
+
+</body>
+</html>
