@@ -5,6 +5,7 @@ class JSONSchemaViewError(Exception):
     default_message = None
 
     def __init__(self, validation_errors):
+        super(JSONSchemaViewError, self).__init__()
         self.message = self.default_message
         self.validation_errors = validation_errors
 
