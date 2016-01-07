@@ -1,0 +1,32 @@
+<div ng-include="'app/views/sidebar.html'"></div>
+
+<section id="main-content">
+    <section class="wrapper">
+      <div class="row">
+          <div class="col-lg-12">
+
+              <div ng-repeat="todoList in todoLists">
+                  <span ng-if="todoList.id == target_id">
+                      <h3 class="page-header"><i class="fa fa-laptop"></i> {{ todoList.name }}</h3>
+                      <ol class="breadcrumb">
+                          <li>{{ todoList.description }}</li>
+                      </ol>
+
+                      <ul>
+                          <li ng-repeat="todoItem in todoItems">
+                              <span ng-if="todoItem.todolist_id == todoList.id">
+                                  {{ todoItem.text }}
+                                  <button type="button" ng-click="itemDone(todoItem)">
+                                      check
+                                  </button>
+                                  <span ng-show="todoItem.done">done!</span>
+                              </span>
+                          </li>
+                      </ul>
+                  </span>
+              </div>
+
+          </div>
+      </div>
+    </section>
+</section>

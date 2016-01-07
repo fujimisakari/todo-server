@@ -1,0 +1,102 @@
+{% load static swampdragon_tags %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+        <meta name="author" content="GeeksLabs">
+        <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+        <link rel="shortcut icon" href={% static "img/favicon.png" %}>
+
+        <title>Creative - Bootstrap Admin Template</title>
+
+        <!-- Bootstrap CSS -->
+        <link href={% static "styles/bootstrap.min.css" %} rel="stylesheet">
+        <!-- bootstrap theme -->
+        <link href={% static "styles/bootstrap-theme.css" %} rel="stylesheet">
+        <!--external css-->
+        <!-- font icon -->
+        <link href={% static "styles/elegant-icons-style.css" %} rel="stylesheet" />
+        <link href={% static "styles/font-awesome.min.css" %} rel="stylesheet" />
+        <!-- Custom styles -->
+        <link href={% static "styles/widgets.css" %} rel="stylesheet">
+        <link href={% static "styles/style.css" %} rel="stylesheet">
+        <link href={% static "styles/style-responsive.css" %} rel="stylesheet" />
+        <link href={% static "styles/jquery-ui-1.10.4.min.css" %} rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+        <!--[if lt IE 9]>
+          <script src={% static "scripts/components/html5shiv.js" %}></script>
+          <script src={% static "scripts/components/respond.min.js" %}></script>
+          <script src={% static "scripts/components/lte-ie7.js" %}></script>
+        <![endif]-->
+    </head>
+
+    <body ng-app="yoProjectApp" ng-controller="PageCtrl">
+        <section id="container" class="">
+            <div ng-include="'app/views/header.html'"></div>
+            <div ng-view></div>
+        </section>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+         <script>
+           !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+           (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+           r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+           }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-XXXXX-X');
+           ga('send', 'pageview');
+        </script>
+
+        <!-- jQery -->
+        <script src={% static "scripts/components/jquery.js" %}></script>
+        <script src={% static "scripts/components/jquery-ui-1.10.4.min.js" %}></script>
+        <script src={% static "scripts/components/jquery-1.8.3.min.js" %}></script>
+        <script src={% static "scripts/components/jquery-ui-1.9.2.custom.min.js" %}></script>
+
+        <!-- bootstrap -->
+        <script src={% static "scripts/components/bootstrap.min.js" %}></script>
+
+        <!-- nice scroll -->
+        <script src={% static "scripts/components/jquery.scrollTo.min.js" %}></script>
+        <script src={% static "scripts/components/jquery.nicescroll.js" %}></script>
+
+        <!-- angular -->
+        <script src={% static "scripts/components/angular.min.js" %}></script>
+        <script src={% static "scripts/components/angular-animate.min.js" %}></script>
+        <script src={% static "scripts/components/angular-cookies.min.js" %}></script>
+        <script src={% static "scripts/components/angular-resource.min.js" %}></script>
+        <script src={% static "scripts/components/angular-route.min.js" %}></script>
+        <script src={% static "scripts/components/angular-sanitize.min.js" %}></script>
+        <script src={% static "scripts/components/angular-touch.min.js" %}></script>
+
+        {% swampdragon_settings %}
+        <script src="{% static 'swampdragon/js/dist/swampdragon.min.js' %}"></script>
+        <script src="{% static 'swampdragon/js/dist/datamapper.js' %}"></script>
+        <script src="{% static 'swampdragon/js/angular/services.js' %}"></script>
+
+        <!-- To-do app -->
+        <script src={% static "scripts/app.js" %}></script>
+        <script src={% static "scripts/controllers/page.js" %}></script>
+        <script src={% static "scripts/controllers/main.js" %}></script>
+        <script src={% static "scripts/controllers/about.js" %}></script>
+
+        <!--script for this page only-->
+        <script src={% static "scripts/components/jquery.rateit.min.js" %}></script>
+
+        <!-- custom select -->
+        <script src={% static "scripts/components/jquery.customSelect.min.js" %}></script>
+
+        <!--custome script for all page-->
+        <script src={% static "scripts/components/scripts.js" %}></script>
+
+        <!-- custom script for this page-->
+        <script src={% static "scripts/components/jquery.autosize.min.js" %}></script>
+        <script src={% static "scripts/components/jquery.placeholder.min.js" %}></script>
+        <script src={% static "scripts/components/gdp-data.js" %}></script>
+        <script src={% static "scripts/components/morris.min.js" %}></script>
+        <script src={% static "scripts/components/sparklines.js" %}></script>
+    </body>
+</html>
