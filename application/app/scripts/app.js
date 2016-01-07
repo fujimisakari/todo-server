@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc overview
- * @name yoProjectApp
+ * @name TodoApp
  * @description
- * # yoProjectApp
+ * # TodoApp
  *
  * Main module of the application.
  */
-angular.module('yoProjectApp', [
+angular.module('TodoApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -21,15 +21,14 @@ angular.module('yoProjectApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'app/views/todolist_all.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'ContextCtrl',
+        controllerAs: 'context'
       })
       .when('/todolist/:id', {
         templateUrl: 'app/views/todolist.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'ContextCtrl',
+        controllerAs: 'context'
       })
-
       .when('/about', {
         templateUrl: 'app/views/about.html',
         controller: 'AboutCtrl',

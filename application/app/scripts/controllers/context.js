@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name yoProjectApp.controller:MainCtrl
+ * @name TodoApp.controller:ContextCtrl
  * @description
- * # MainCtrl
- * Controller of the yoProjectApp
+ * # ContextCtrl
+ * Controller of the TodoApp
  */
-angular.module('yoProjectApp')
-  .controller('MainCtrl', ['$scope', '$routeParams', '$dragon', function ($scope, $routeParams, $dragon) {
+angular.module('TodoApp')
+  .controller('ContextCtrl', ['$scope', '$routeParams', '$dragon', function ($scope, $routeParams, $dragon) {
     // $scope.todoList = $scope.$parent.todoList;
     $scope.todoLists = $scope.$parent.todoLists;
     $scope.todoItems = $scope.$parent.todoItems;

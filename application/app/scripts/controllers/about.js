@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name yoProjectApp.controller:AboutCtrl
+ * @name TodoApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the yoProjectApp
+ * Controller of the TodoApp
  */
-angular.module('yoProjectApp')
+angular.module('TodoApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

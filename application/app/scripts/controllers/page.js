@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name yoProjectApp.controller:MainCtrl
+ * @name TodoApp.controller:PageCtrl
  * @description
- * # MainCtrl
- * Controller of the yoProjectApp
+ * # PageCtrl
+ * Controller of the TodoApp
  */
-angular.module('yoProjectApp')
+angular.module('TodoApp')
   .controller('PageCtrl', ['$scope', '$routeParams', '$dragon', function ($scope, $routeParams, $dragon) {
     $scope.todoList = {};
     $scope.todoLists = [];
