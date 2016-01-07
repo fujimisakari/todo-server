@@ -27,7 +27,8 @@ class TodoItemRouter(ModelRouter):
         return self.model.objects.get(pk=kwargs['id'])
 
     def get_query_set(self, **kwargs):
-        return self.model.objects.filter(todo_list__id=kwargs['list_id'])
+        return self.model.objects.all()
+        # return self.model.objects.filter(todo_list__id=kwargs['list_id'])
 
 
 route_handler.register(TodoListRouter)

@@ -57,7 +57,7 @@ ROOT_URLCONF = 'urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'application/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'application/app')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,9 +99,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/app/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'application/static'),
+    os.path.join(BASE_DIR, 'application/app'),
 )
 
 # SwampDragon settings

@@ -34,6 +34,15 @@ Here be dragons!
             <span ng-show="item.done">done!</span>
         </li>
     </ul>
+
+    <h3>TodoList</h3>
+    <ul>
+        <li ng-repeat="list in todoLists">
+            {{ list.name }}<br />
+            {{ list.description }}<br />
+            -------------
+        </li>
+    </ul>
 </div>
 {% endverbatim %}
 

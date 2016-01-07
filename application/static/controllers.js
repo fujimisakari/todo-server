@@ -2,16 +2,26 @@ var TodoControllers = angular.module('TodoControllers', []);
 
 TodoControllers.controller('TodoListCtrl', ['$scope', '$dragon', function ($scope, $dragon) {
     $scope.todoList = {};
+    $scope.todoLists = [];
     $scope.todoItems = [];
-    $scope.channel = 'todos';
+    $scope.todoListChannel = 'todoListClient';
+    $scope.todoItemChannel = 'todoItemClient';
 
     $dragon.onReady(function() {
-        $dragon.subscribe('todo-item', $scope.channel, {todo_list__id: 1}).then(function(response) {
-            $scope.dataMapper = new DataMapper(response.data);
+        $dragon.subscribe('todo-list', $scope.todoListChannel, {}).then(function(response) {
+            $scope.TodoListMapper = new DataMapper(response.data);
+        });
+
+        $dragon.subscribe('todo-item', $scope.todoItemChannel, {todo_list__id: 1}).then(function(response) {
+            $scope.todoItemMapper = new DataMapper(response.data);
         });
 
         $dragon.getSingle('todo-list', {id:1}).then(function(response) {
             $scope.todoList = response.data;
+        });
+
+        $dragon.getList('todo-list', {list_id:1}).then(function(response) {
+            $scope.todoLists = response.data;
         });
 
         $dragon.getList('todo-item', {list_id:1}).then(function(response) {
@@ -20,9 +30,17 @@ TodoControllers.controller('TodoListCtrl', ['$scope', '$dragon', function ($scop
     });
 
     $dragon.onChannelMessage(function(channels, message) {
-        if (indexOf.call(channels, $scope.channel) > -1) {
+        console.log(channels);
+        console.log(message);
+        if (indexOf.call(channels, $scope.todoListChannel) > -1) {
             $scope.$apply(function() {
-                $scope.dataMapper.mapData($scope.todoItems, message);
+                $scope.TodoListMapper.mapData($scope.todoLists, message);
+            });
+        }
+
+        if (indexOf.call(channels, $scope.todoItemChannel) > -1) {
+            $scope.$apply(function() {
+                $scope.todoItemMapper.mapData($scope.todoItems, message);
             });
         }
     });
