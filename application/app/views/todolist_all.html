@@ -2,33 +2,28 @@
 
 <section id="main-content">
     <section class="wrapper">
-      <div class="row">
-          <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Header Title -->
+                <h3 class="page-header"><i class="fa fa-asterisk"></i> ALL</h3>
 
-              <h3 class="page-header"><i class="fa fa-laptop"></i> ALL</h3>
-              
-             <!-- <ol class="breadcrumb">
-                   <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                   <li><i class="fa fa-laptop"></i>Dashboard</li>
-                   </ol> -->
+                <!-- Todo List -->
+                <div ng-repeat="todoList in todoLists">
+                    <div class="todoList-title-small">{{ todoList.name }}</div>
+                    <div ng-repeat="todoItem in todoItems">
+                        <div class="todoItem-body" ng-if="todoItem.todolist_id == todoList.id">
+                           <span class="todoItem-checkbox" ng-click="itemDone(todoItem)">
+                               <i class="fa fa-square-o"></i>
+                           </span>
 
-              <div ng-repeat="todoList in todoLists">
-                  <h3>{{ todoList.name }}</h3>
-                  <pre>{{ todoList.description }}</pre>
-                  <ul>
-                      <li ng-repeat="todoItem in todoItems">
-                          <span ng-if="todoItem.todolist_id == todoList.id">
-                              {{ todoItem.text }}
-                              <button type="button" ng-click="itemDone(todoItem)">
-                                  check
-                              </button>
-                              <span ng-show="todoItem.done">done!</span>
-                          </span>
-                      </li>
-                  </ul>
-              </div>
-
-          </div>
-      </div>
+                           <span class="todoItem-title">
+                               {{ todoItem.text }}
+                               <span ng-show="todoItem.done">done!</span>
+                           </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </section>
