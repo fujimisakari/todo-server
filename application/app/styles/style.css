@@ -275,6 +275,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 
 ul.sidebar-menu {
     margin-top: 60px;
+    margin-bottom: 55px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -4991,6 +4992,11 @@ span.customSelect.changed {
     cursor: default;
 }
 
+.todoItem-body .todoItem-done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
 .todoItem-body .todoItem-checkbox {
     margin-right: 15px;
     float: left;
@@ -5029,8 +5035,4 @@ span.customSelect.changed {
     fill: #44ccfe;
     font-size: 18px;
     padding-right: 6px;
-}
-
-ul.sidebar-menu {
-    margin-bottom: 55px;
 }

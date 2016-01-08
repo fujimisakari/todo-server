@@ -8,11 +8,11 @@ function initializeJS() {
 
     //custom scrollbar
         //for html
-    jQuery("html").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', zindex: '1000', scrollspeed: 200});
+    jQuery("html").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', zindex: '1000', scrollspeed: 50});
         //for sidebar
-    jQuery("#sidebar").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', scrollspeed: 200});
-        // for scroll panel
-    jQuery(".scroll-panel").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', scrollspeed: 200});
+    // jQuery("html #sidebar").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', scrollspeed: 50});
+    //     // for scroll panel
+    // jQuery(".scroll-panel").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', scrollspeed: 200});
 
     //sidebar dropdown menu
     jQuery('#sidebar .sub-menu > a').click(function () {
