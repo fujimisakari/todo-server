@@ -8,6 +8,7 @@ class TodoListSerializer(ModelSerializer):
     class Meta:
         model = 'todo.TodoList'
         publish_fields = ('name', 'description')
+        update_fields = ('name', 'description')
 
 
 class TodoItemSerializer(ModelSerializer):

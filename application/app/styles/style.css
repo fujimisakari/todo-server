@@ -353,7 +353,7 @@ ul.sidebar-menu li a{
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    border-right: 1px solid #D7D7D7;
+    /* border-right: 1px solid #D7D7D7; */
     border-bottom: 1px solid #D7D7D7;
 }
 /*ul.sidebar-menu li a i{
@@ -554,7 +554,7 @@ a.logo span {
 .search-row {
     float: left;
     margin-top: 9px;
-    margin-left: 45px;
+    margin-left: 47px;
 }
 .notification-row {
     float: right;
@@ -1811,7 +1811,7 @@ div[data-role="editor-toolbar"] {
 }
 
 .sidebar-closed #sidebar {
-    margin-left: -180px;
+    margin-left: -280px;
 }
 
 /*state overview*/
@@ -4992,14 +4992,45 @@ span.customSelect.changed {
 }
 
 .todoItem-body .todoItem-checkbox {
-    /* color: #a4a4a4; */
-  margin-right: 15px;
-  float: left;
-  font-size: 25px;
-    /* line-height: 30px; */
-    /* opacity: 0.8; */
+    margin-right: 15px;
+    float: left;
+    font-size: 25px;
 }
 
 .todoItem-body .todoItem-checkbox i {
     /* color: #262626; */
+}
+
+.createListBtn {
+    background: #253746;
+    position: fixed;
+    bottom: 0px;
+    width: 280px;
+    display: block;
+    padding: 20px 0 15px 10px;
+    outline: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border-top: 1px solid #D7D7D7;
+}
+
+.createListBtn a {
+    color: #44ccfe;
+    fill: #44ccfe;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+}
+.createListBtn a i {
+    color: #44ccfe;
+    fill: #44ccfe;
+    font-size: 18px;
+    padding-right: 6px;
+}
+
+ul.sidebar-menu {
+    margin-bottom: 55px;
 }

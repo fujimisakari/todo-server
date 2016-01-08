@@ -9,18 +9,19 @@
 
                 <!-- Todo List -->
                 <div ng-repeat="todoList in todoLists">
-                    <div class="todoList-title-small">{{ todoList.name }}</div>
-                    <div ng-repeat="todoItem in todoItems">
-                        <div class="todoItem-body" ng-if="todoItem.todolist_id == todoList.id">
-                           <span class="todoItem-checkbox" ng-click="itemDone(todoItem)">
-                               <i class="fa fa-square-o"></i>
-                           </span>
+                    <div ng-if="isExistByNotDone(getTodoItems(todoList.id))">
+                       <div class="todoList-title-small">{{ todoList.name }}</div>
+                       <div ng-repeat="todoItem in getTodoItems(todoList.id)">
+                           <div class="todoItem-body" ng-if="!todoItem.done">
+                              <span class="todoItem-checkbox" ng-click="itemDone(todoItem)">
+                                  <i class="fa fa-square-o"></i>
+                              </span>
 
-                           <span class="todoItem-title">
-                               {{ todoItem.text }}
-                               <span ng-show="todoItem.done">done!</span>
-                           </span>
-                        </div>
+                              <span class="todoItem-title">
+                                  {{ todoItem.text }}
+                              </span>
+                           </div>
+                       </div>
                     </div>
                 </div>
             </div>

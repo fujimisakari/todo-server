@@ -11,6 +11,9 @@ class TodoListRouter(ModelRouter):
     serializer_class = TodoListSerializer
     model = TodoList
 
+    def get_initial(self, verb, **kwargs):
+        return kwargs
+
     def get_object(self, **kwargs):
         return self.model.objects.get(pk=kwargs['id'])
 

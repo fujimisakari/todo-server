@@ -29,11 +29,6 @@ angular.module('TodoApp', [
         controller: 'ContextCtrl',
         controllerAs: 'context'
       })
-      .when('/about', {
-        templateUrl: 'app/views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,3 +1,4 @@
+<div ng-include="'app/views/todolist_modal.html'"></div>
 
 <aside>
     <div id="sidebar" class="nav-collapse ">
@@ -16,5 +17,8 @@
                 </a>
             </li>
         </ul>
+        <div class="createListBtn">
+            <a data-toggle="modal" data-target="#todoListModal"><i class="fa fa-plus"></i> Create TodoList</a>
+        </div>
     </div>
 </aside>
