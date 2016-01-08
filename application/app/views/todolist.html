@@ -11,6 +11,13 @@
                         <h3 class="page-header"><i class="fa fa-list-alt"></i>{{ todoList.name }}</h3>
                         <p ng-if="todoList.dscription">{{ todoList.description }}</p>
 
+                        <form class="todoItem-body todoItem-add-body" ng-submit="itemCreate($event)">
+                            <span class="todoItem-add-i">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                            <input class="todoItem-form" placeholder="Add a To-do.." type="text" ng-model="newTodoItem.text" required>
+                        </form>
+
                         <!-- Todo List -->
                         <div ng-if="isExistByNotDone(getTodoItems(todoList.id))">
                             <div ng-repeat="todoItem in getTodoItems(todoList.id)">
@@ -21,7 +28,6 @@
 
                                     <span class="todoItem-title">
                                         {{ todoItem.text }}
-                                        <span ng-show="todoItem.done">done!</span>
                                     </span>
                                 </div>
                             </div>

@@ -14,6 +14,8 @@ angular.module('TodoApp')
     $scope.todoLists = $scope.$parent.todoLists;
     $scope.todoItems = $scope.$parent.todoItems;
     $scope.todoList_id = 0;
+    $scope.newTodoItem = {};
+    $scope.newTodoItem.text = "";
 
     if ('id' in $routeParams) {
         $scope.todoList_id = $routeParams['id'];
@@ -28,6 +30,14 @@ angular.module('TodoApp')
     $scope.$on('syncTodoItems', function(event, data) {
         $scope.todoItems = data;
     });
+
+    $scope.itemCreate = function(e) {
+        if (e.which !== 13) {
+            $scope.newTodoItem['todolist_id'] = $scope.todoList_id;
+            $dragon.create('todo-item', $scope.newTodoItem);
+            $scope.newTodoItem = {};
+        }
+    }
 
     $scope.itemDone = function(item) {
         item.done = true != item.done;

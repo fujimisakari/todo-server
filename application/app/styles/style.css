@@ -4959,7 +4959,7 @@ span.customSelect.changed {
 .todoItem-body {
     height: 46px;
     list-style: none;
-    background-color: #ffffff;
+    background: #ffffff;
     position: relative;
     margin: 5px 0 5px 0;
     padding-left: 10px;
@@ -4983,6 +4983,20 @@ span.customSelect.changed {
     display: flex;
 }
 
+.todoItem-add-body {
+    background: #394a59;
+    color: #d0d8df;
+    margin-bottom: 20px;
+}
+
+.todoItem-form {
+    background: #394a59;
+    color: #d0d8df;
+    border: 0px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .todoItem-body .todoItem-title {
     white-space: nowrap;
     overflow: hidden;
@@ -5001,6 +5015,12 @@ span.customSelect.changed {
     margin-right: 15px;
     float: left;
     font-size: 25px;
+}
+
+.todoItem-body .todoItem-add-i {
+    margin-right: 15px;
+    float: left;
+    font-size: 18px;
 }
 
 .todoItem-body .todoItem-checkbox i {
