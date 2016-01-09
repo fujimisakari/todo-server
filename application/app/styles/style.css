@@ -873,20 +873,62 @@ div[data-role="editor-toolbar"] {
 }
 /*----*/
 .page-header {
-  margin: 12px 0;
+  margin: 20px 0 10px 0;
   border-bottom: none;
     /* opacity: 0.7; */
-  text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
+/* clearfix */
+.page-header:before,
+.page-header:after {
+    content: "";
+    display: table;
+}
+
+.page-header:after {
+    clear: both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.page-header {
+    zoom: 1;
+}
+
+.page-header:after {
+  clear: both;
+}
+
+.page-header .header-title {
+  font-weight: 300;
+  font-size: 24px;
+  margin-right: 30px;
+  line-height: 1.1;
+  float: left;
+  /* opacity: 0.8; */
+}
+
 .page-header i {
-    /* color: #acb1b8; */
   color: #a4a4a4;
-  margin-right: 10px;
+  margin-right: 15px;
   float: left;
   font-size: 30px;
   line-height: 30px;
     /* opacity: 0.8; */
 }
+
+.page-header i.large {
+  font-size: 30px;
+}
+
+.page-header i.middle {
+  font-size: 20px;
+}
+
+.header-desc {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
 .breadcrumb {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;

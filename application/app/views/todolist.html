@@ -8,8 +8,14 @@
                 <div ng-repeat="todoList in todoLists">
                     <span ng-if="todoList.id == todoList_id">
                         <!-- Header Title -->
-                        <h3 class="page-header"><i class="fa fa-list-alt"></i>{{ todoList.name }}</h3>
-                        <p ng-if="todoList.dscription">{{ todoList.description }}</p>
+                        <div class="page-header">
+                            <i class="fa fa-list-alt large"></i>
+                            <span class="header-title">{{ todoList.name }}</span>
+                            <i class="fa fa-pencil middle"></i>
+                            <i class="fa fa-trash-o middle"></i>
+                        </div>
+
+                        <div class="header-desc" ng-show="todoList.description">{{ todoList.description }}</div>
 
                         <form class="todoItem-body todoItem-add-body" ng-submit="itemCreate($event)">
                             <span class="todoItem-add-i">
