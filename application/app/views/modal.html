@@ -1,0 +1,89 @@
+<!-- Create -->
+<div ng-controller="TodoListCreateModalCtrl">
+    <div class="modal fade" id="todoListCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Cretate TodoList</h4>
+                </div>
+                <form novalidate name="todoListForm" ng-submit="create()">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Name:</label>
+                            <input type="text" class="form-control" id="recipient-name" name="name" ng-model="todoList.name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Description:</label>
+                            <textarea class="form-control" id="message-text" ng-model="todoList.description"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">Close</button>
+                        <button ng-disabled="todoListForm.$invalid" type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- edit -->
+<div ng-repeat="todoList in todoLists">
+    <span ng-if="todoList.id == todoList_id">
+        <div ng-controller="TodoListEditModalCtrl">
+            <div ng-init="setTodoList(todoList_id)" />
+            <div class="modal fade" id="todoListEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Edit TodoList</h4>
+                        </div>
+                        <form novalidate name="todoListForm" ng-submit="edit(todoList_id)">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Name:</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="name" ng-model="todoList.name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label">Description:</label>
+                                    <textarea class="form-control" id="message-text" ng-model="todoList.description"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button ng-disabled="todoListForm.$invalid" type="submit" class="btn btn-primary">Edit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
+
+<!-- Delete Confirm -->
+<div ng-repeat="todoList in todoLists">
+    <span ng-if="todoList.id == todoList_id">
+        <div id="todoListDeleteModal" class="modal fade" tabindex="-1" role="dialog">
+            <div ng-init="deleteTodoList=getTodoList(todoList_id)" />
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">TodoList Delete</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>"{{ deleteTodoList.name }}" will be deleted forever.</h4>
+                        <p>You will not able be to undo this action.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="TodolistDelete(todoList_id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>

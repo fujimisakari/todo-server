@@ -8,8 +8,8 @@
  * Controller of the TodoApp
  */
 angular.module('TodoApp')
-  .controller('ContextCtrl', ['$scope', '$routeParams', '$dragon', '$dataHandler',
-                              function ($scope, $routeParams, $dragon, $dataHandler) {
+  .controller('ContextCtrl', ['$scope', '$routeParams', '$dragon', '$dataHandler', '$location',
+                              function ($scope, $routeParams, $dragon, $dataHandler, $location) {
     // $scope.todoList = $scope.$parent.todoList;
     $scope.todoLists = $scope.$parent.todoLists;
     $scope.todoItems = $scope.$parent.todoItems;
@@ -44,9 +44,14 @@ angular.module('TodoApp')
         $dragon.update('todo-item', item);
     }
 
-    $scope.itemDone = function(item) {
-        item.done = true != item.done;
-        $dragon.update('todo-item', item);
+    $scope.TodolistDelete = function(targetId) {
+        var todoItems = $scope.getTodoItems(targetId);
+        for (var item in todoItems) {
+            $dragon.delete('todo-item', todoItems[item]);
+        }
+        $dragon.delete('todo-list', $scope.getTodoList(targetId));
+        $('.modal-backdrop').remove();
+        $location.path('/');
     }
 
     $scope.getTodoList = function(targetId) {
@@ -61,17 +66,6 @@ angular.module('TodoApp')
         var count = 0;
         for (var key in $scope.todoItems) {
             if (!$scope.todoItems[key]['done']) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    $scope.getTodoItemsCount = function(targetId) {
-        var todoItems = $dataHandler.getDataListById($scope.todoItems, 'todolist_id', targetId);
-        var count = 0;
-        for (var key in todoItems) {
-            if (!todoItems[key]['done']) {
                 count++;
             }
         }
