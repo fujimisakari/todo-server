@@ -5041,6 +5041,7 @@ ul.sidebar-menu li .todoItemsCount {
 .todoItem-form {
     background: #394a59;
     color: #d0d8df;
+    width: 100%;
     border: 0px;
     font-size: 15px;
     font-weight: 500;
@@ -5064,6 +5065,10 @@ ul.sidebar-menu li .todoItemsCount {
     margin-right: 15px;
     float: left;
     font-size: 25px;
+}
+
+.todoItem-body .todoItem-checkbox i.done {
+    opacity: 0.6;
 }
 
 .todoItem-body .todoItem-add-i {
