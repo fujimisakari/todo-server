@@ -4943,6 +4943,13 @@ span.customSelect.changed {
 
 /*My Custom Select*/
 
+ul.sidebar-menu li .todoItemsCount {
+    margin-right: 10px;
+    float: right;
+    /* font-size: 15px; */
+    /* color: #d0d8df; */
+}
+
 .todoList-title-small {
     background: #394a59;
     color: #d0d8df;
@@ -5021,10 +5028,6 @@ span.customSelect.changed {
     margin-right: 15px;
     float: left;
     font-size: 18px;
-}
-
-.todoItem-body .todoItem-checkbox i {
-    /* color: #262626; */
 }
 
 .createListBtn {

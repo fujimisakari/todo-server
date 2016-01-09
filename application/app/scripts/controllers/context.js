@@ -44,12 +44,49 @@ angular.module('TodoApp')
         $dragon.update('todo-item', item);
     }
 
+    $scope.itemDone = function(item) {
+        item.done = true != item.done;
+        $dragon.update('todo-item', item);
+    }
+
     $scope.getTodoList = function(targetId) {
         return $dataHandler.getDataById($scope.todoLists, targetId);
     }
 
     $scope.getTodoItems = function(targetId) {
         return $dataHandler.getDataListById($scope.todoItems, 'todolist_id', targetId);
+    }
+
+    $scope.getAllTodoItemsCount = function() {
+        var count = 0;
+        for (var key in $scope.todoItems) {
+            if (!$scope.todoItems[key]['done']) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    $scope.getTodoItemsCount = function(targetId) {
+        var todoItems = $dataHandler.getDataListById($scope.todoItems, 'todolist_id', targetId);
+        var count = 0;
+        for (var key in todoItems) {
+            if (!todoItems[key]['done']) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    $scope.getTodoItemsCount = function(targetId) {
+        var todoItems = $dataHandler.getDataListById($scope.todoItems, 'todolist_id', targetId);
+        var count = 0;
+        for (var key in todoItems) {
+            if (!todoItems[key]['done']) {
+                count++;
+            }
+        }
+        return count;
     }
 
     $scope.isExistByDone = function(dataList) {

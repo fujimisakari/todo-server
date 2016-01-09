@@ -3,17 +3,19 @@
 <aside>
     <div id="sidebar" class="nav-collapse">
         <ul class="sidebar-menu">
-            <li ng-class="{'active': target_id == 0}">
+            <li ng-class="{'active': todoList_id == 0}">
                 <a ng-href="#/">
                   <i class="fa fa-asterisk"></i>
                   <span>ALL</span>
+                  <span class="todoItemsCount" ng-bind="getAllTodoItemsCount()"></span>
                 </a>
             </li>
 
-            <li ng-repeat="todoList in todoLists" ng-class="{'active': todoList.id == target_id}">
+            <li ng-repeat="todoList in todoLists" ng-class="{'active': todoList.id == todoList_id}">
                 <a ng-href="#/todolist/{{ todoList.id }}">
                     <i class="fa fa-list-alt"></i>
                     <span>{{ todoList.name }}</span>
+                    <span class="todoItemsCount" ng-show="getTodoItemsCount(todoList.id)" ng-bind="getTodoItemsCount(todoList.id)"></span>
                 </a>
             </li>
         </ul>
