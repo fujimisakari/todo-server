@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name TodoApp.controller:TodoListEditModalCtrl
+ * @name todoApp.controller:TodoListEditModalController
  * @description
- * # TodoListEditModalCtrl
- * Controller of the TodoApp
+ * # TodoListEditModalController
+ * Controller of the todoApp
  */
-angular.module('TodoApp')
-  .controller('TodoListEditModalCtrl', ['$scope', '$dragon', '$dataHandler',
+angular.module('todoApp')
+  .controller('TodoListEditModalController', ['$scope', '$dragon', '$dataHandler',
                                         function ($scope, $dragon, $dataHandler) {
     $scope.todoList = {};
     $scope.todoList.name = "";

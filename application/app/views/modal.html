@@ -1,5 +1,5 @@
 <!-- Create -->
-<div ng-controller="TodoListCreateModalCtrl">
+<div ng-controller="TodoListCreateModalController">
     <div class="modal fade" id="todoListCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -31,7 +31,7 @@
 <!-- edit -->
 <div ng-repeat="todoList in todoLists">
     <span ng-if="todoList.id == todoList_id">
-        <div ng-controller="TodoListEditModalCtrl">
+        <div ng-controller="TodoListEditModalController">
             <div ng-init="setTodoList(todoList_id)" />
             <div class="modal fade" id="todoListEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TodoApp')
+angular.module('todoApp')
   .factory('$dataHandler', [function () {
     return {
         getDataById: function (dataList, targetId) {
