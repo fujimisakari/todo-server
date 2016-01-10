@@ -29,6 +29,11 @@ angular.module('todoApp', [
         controller: 'ContextController',
         controllerAs: 'context'
       })
+      .when('/search/:searchWord', {
+        templateUrl: 'app/views/search.html',
+        controller: 'SearchController',
+        controllerAs: 'search'
+      })
       .otherwise({
         redirectTo: '/'
       });

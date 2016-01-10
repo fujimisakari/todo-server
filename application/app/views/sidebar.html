@@ -1,26 +1,27 @@
-<div ng-include="'app/views/modal.html'"></div>
 
-<aside>
-    <div id="sidebar" class="nav-collapse">
-        <ul class="sidebar-menu">
-            <li ng-class="{'active': todoList_id == 0}">
-                <a ng-href="#/">
-                  <i class="fa fa-asterisk"></i>
-                  <span>ALL</span>
-                  <span class="todoItemsCount" ng-bind="getAllTodoItemsCount()"></span>
-                </a>
-            </li>
+<div ng-controller="SidebarController">
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <ul class="sidebar-menu">
+                <li ng-class="{'active': selectTodoListId == 0}">
+                    <a ng-href="#/">
+                      <i class="fa fa-asterisk"></i>
+                      <span>ALL</span>
+                      <span class="todoItemsCount" ng-bind="getAllTodoItemsCount()"></span>
+                    </a>
+                </li>
 
-            <li ng-repeat="todoList in todoLists" ng-class="{'active': todoList.id == todoList_id}">
-                <a ng-href="#/todolist/{{ todoList.id }}">
-                    <i class="fa fa-list-alt"></i>
-                    <span>{{ todoList.name }}</span>
-                    <span class="todoItemsCount" ng-show="getTodoItemsCount(todoList.id)" ng-bind="getTodoItemsCount(todoList.id)"></span>
-                </a>
-            </li>
-        </ul>
-        <div class="createListBtn">
-            <a data-toggle="modal" data-target="#todoListCreateModal"><i class="fa fa-plus"></i> Create TodoList</a>
+                <li ng-repeat="todoList in todoLists" ng-class="{'active': todoList.id == selectTodoListId}">
+                    <a ng-href="#/todolist/{{ todoList.id }}">
+                        <i class="fa fa-list-alt"></i>
+                        <span>{{ todoList.name }}</span>
+                        <span class="todoItemsCount" ng-show="getTodoItemsCount(todoList.id)" ng-bind="getTodoItemsCount(todoList.id)"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="createListBtn">
+                <a data-toggle="modal" data-target="#todoListCreateModal"><i class="fa fa-plus"></i> Create TodoList</a>
+            </div>
         </div>
-    </div>
-</aside>
+    </aside>
+</div>

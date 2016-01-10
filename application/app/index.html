@@ -24,15 +24,17 @@
         <link href={% static "styles/style-responsive.css" %} rel="stylesheet" />
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
         <!--[if lt IE 9]>
-          <script src={% static "scripts/components/html5shiv.js" %}></script>
-          <script src={% static "scripts/components/respond.min.js" %}></script>
-          <script src={% static "scripts/components/lte-ie7.js" %}></script>
+          <script src={% static "scripts/vendor/html5shiv.js" %}></script>
+          <script src={% static "scripts/vendor/respond.min.js" %}></script>
+          <script src={% static "scripts/vendor/lte-ie7.js" %}></script>
         <![endif]-->
     </head>
 
     <body ng-app="todoApp" ng-controller="PageController">
         <section id="container" class="">
             <div ng-include="'app/views/header.html'"></div>
+            <div ng-include="'app/views/sidebar.html'"></div>
+            <div ng-include="'app/views/modal.html'"></div>
             <div ng-view></div>
         </section>
 
@@ -48,22 +50,22 @@
         </script>
 
         <!-- jQery -->
-        <script src={% static "scripts/components/jquery.js" %}></script>
+        <script src={% static "scripts/vendor/jquery.js" %}></script>
 
         <!-- bootstrap -->
-        <script src={% static "scripts/components/bootstrap.min.js" %}></script>
+        <script src={% static "scripts/vendor/bootstrap.min.js" %}></script>
 
         <!-- nice scroll -->
-        <script src={% static "scripts/components/jquery.nicescroll.js" %}></script>
+        <script src={% static "scripts/vendor/jquery.nicescroll.js" %}></script>
 
         <!-- angular -->
-        <script src={% static "scripts/components/angular.min.js" %}></script>
-        <script src={% static "scripts/components/angular-animate.min.js" %}></script>
-        <script src={% static "scripts/components/angular-cookies.min.js" %}></script>
-        <script src={% static "scripts/components/angular-resource.min.js" %}></script>
-        <script src={% static "scripts/components/angular-route.min.js" %}></script>
-        <script src={% static "scripts/components/angular-sanitize.min.js" %}></script>
-        <script src={% static "scripts/components/angular-touch.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular-animate.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular-cookies.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular-resource.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular-route.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular-sanitize.min.js" %}></script>
+        <script src={% static "scripts/vendor/angular-touch.min.js" %}></script>
 
         {% swampdragon_settings %}
         <script src="{% static 'swampdragon/js/dist/swampdragon.min.js' %}"></script>
@@ -74,12 +76,15 @@
         <script src={% static "scripts/app.js" %}></script>
         <script src={% static "scripts/services/dataHandler.js" %}></script>
         <script src={% static "scripts/controllers/page.js" %}></script>
+        <script src={% static "scripts/controllers/header.js" %}></script>
+        <script src={% static "scripts/controllers/sidebar.js" %}></script>
+        <script src={% static "scripts/controllers/search.js" %}></script>
         <script src={% static "scripts/controllers/context.js" %}></script>
         <script src={% static "scripts/controllers/todolist-create-modal.js" %}></script>
         <script src={% static "scripts/controllers/todolist-edit-modal.js" %}></script>
 
         <!--custome script for all page-->
-        <script src={% static "scripts/components/scripts.js" %}></script>
+        <script src={% static "scripts/vendor/scripts.js" %}></script>
         <script type="text/javascript">
             $(window).load(function(){
                 initializeJS();

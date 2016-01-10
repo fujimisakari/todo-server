@@ -12,6 +12,7 @@ angular.module('todoApp')
     $scope.todoList = {};
     $scope.todoLists = [];
     $scope.todoItems = [];
+    $scope.selectTodoListId = 0;
     $scope.todoListChannel = 'todoListClient';
     $scope.todoItemChannel = 'todoItemClient';
 
@@ -39,6 +40,11 @@ angular.module('todoApp')
             $scope.$broadcast('syncTodoItems', $scope.todoItems);
         });
     });
+
+    $scope.setTodoListId = function(todoListId) {
+        $scope.selectTodoListId = todoListId;
+        $scope.$broadcast('syncSelectTodoListId', $scope.selectTodoListId);
+    };
 
     $dragon.onChannelMessage(function(channels, message) {
         console.log(channels);
