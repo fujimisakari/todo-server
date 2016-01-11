@@ -34,19 +34,7 @@ angular.module('todoApp')
         $dragon.update('todo-item', item);
     }
 
-    $scope.TodolistDelete = function(todoListId) {
-        var todoItems = $scope.getTodoItems(todoListId);
-        for (var item in todoItems) {
-            $dragon.delete('todo-item', todoItems[item]);
-        }
-        $dragon.delete('todo-list', $scope.getTodoList(todoListId));
-        $('.modal-backdrop').remove();
-        $location.path('/');
-    }
-
     $scope.getTodoList = function(todoListId) {
-        console.log('ssssssssss');
-        console.log($dataHandler.getDataById($scope.todoLists, todoListId));
         return $dataHandler.getDataById($scope.todoLists, todoListId);
     }
 
