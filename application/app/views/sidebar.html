@@ -11,11 +11,11 @@
                     </a>
                 </li>
 
-                <li ng-repeat="todoList in todoLists" ng-class="{'active': todoList.id == selectTodoListId}">
+                <li ng-repeat="todoList in todoLists()" ng-class="{'active': todoList.id == selectTodoListId}">
                     <a ng-href="#/todolist/{{ todoList.id }}">
                         <i class="fa fa-list-alt"></i>
                         <span>{{ todoList.name }}</span>
-                        <span class="todoItemsCount" ng-show="getTodoItemsCount(todoList.id)" ng-bind="getTodoItemsCount(todoList.id)"></span>
+                        <span class="todoItemsCount" ng-show="getTodoItemsCount(todoList.items)" ng-bind="getTodoItemsCount(todoList.items)"></span>
                     </a>
                 </li>
             </ul>

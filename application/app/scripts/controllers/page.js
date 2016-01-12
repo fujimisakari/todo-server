@@ -8,13 +8,16 @@
  * Controller of the todoApp
  */
 angular.module('todoApp')
-  .controller('PageController', ['$scope', '$routeParams', '$dragon', function ($scope, $routeParams, $dragon) {
-    $scope.todoList = {};
-    $scope.todoLists = [];
-    $scope.todoItems = [];
+  .controller('PageController', ['$scope', '$dragon', '$dataHandler',
+                                 function ($scope, $dragon, $dataHandler) {
     $scope.selectTodoListId = 0;
     $scope.todoListChannel = 'todoListClient';
     $scope.todoItemChannel = 'todoItemClient';
+
+    $scope.setTodoListId = function(todoListId) {
+        $scope.selectTodoListId = todoListId;
+        $scope.$broadcast('syncSelectTodoListId', $scope.selectTodoListId);
+    };
 
     $dragon.onReady(function() {
         $dragon.subscribe('todo-list', $scope.todoListChannel, {}).then(function(response) {
@@ -25,40 +28,32 @@ angular.module('todoApp')
             $scope.todoItemMapper = new DataMapper(response.data);
         });
 
-        $dragon.getSingle('todo-list', {id: 1}).then(function(response) {
-            $scope.todoList = response.data;
-            $scope.$broadcast('syncTodoList', $scope.todoList);
-        });
-
         $dragon.getList('todo-list', {list_id: 1}).then(function(response) {
-            $scope.todoLists = response.data;
-            $scope.$broadcast('syncTodoLists', $scope.todoLists);
+            $dataHandler.todoLists = response.data;
         });
 
         $dragon.getList('todo-item', {list_id: 1}).then(function(response) {
-            $scope.todoItems = response.data;
-            $scope.$broadcast('syncTodoItems', $scope.todoItems);
+            $dataHandler.todoItems = response.data;
+            $dataHandler.formatData();
         });
     });
 
-    $scope.setTodoListId = function(todoListId) {
-        $scope.selectTodoListId = todoListId;
-        $scope.$broadcast('syncSelectTodoListId', $scope.selectTodoListId);
-    };
-
     $dragon.onChannelMessage(function(channels, message) {
-        console.log(channels);
-        console.log(message);
         if (indexOf.call(channels, $scope.todoListChannel) > -1) {
             $scope.$apply(function() {
-                $scope.TodoListMapper.mapData($scope.todoLists, message);
+                $scope.TodoListMapper.mapData($dataHandler.todoLists, message);
             });
         }
 
         if (indexOf.call(channels, $scope.todoItemChannel) > -1) {
             $scope.$apply(function() {
-                $scope.todoItemMapper.mapData($scope.todoItems, message);
+                $scope.todoItemMapper.mapData($dataHandler.todoItems, message);
             });
         }
+
+        $scope.$apply(function() {
+            $dataHandler.formatData();
+        });
     });
+
 }]);

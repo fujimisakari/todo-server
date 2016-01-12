@@ -3,27 +3,29 @@
 angular.module('todoApp')
   .factory('$dataHandler', [function () {
     return {
-        getDataById: function (dataList, targetId) {
-            for (var key in dataList) {
-                if (dataList[key]['id'] == targetId) {
-                    return dataList[key];
+        todoLists: [],
+        todoListMap: {},
+        todoItems: [],
+
+        formatData: function () {
+            this.todoListMap = {};
+            for (var listKey in this.todoLists) {
+                var items = []
+                for (var itemKey in this.todoItems) {
+                    if (this.todoItems[itemKey]['todolist_id'] == this.todoLists[listKey]['id']) {
+                        items.push(this.todoItems[itemKey]);
+                    }
                 }
+                this.todoLists[listKey]['items'] = items;
+                this.todoListMap[this.todoLists[listKey]['id']] = this.todoLists[listKey];
             }
-            return {}
         },
 
-        getDataListById: function (dataList, targetName, targetId) {
-            var resultList = []
-            for (var key in dataList) {
-                if (dataList[key][targetName] == targetId) {
-                    resultList.push(dataList[key]);
-                }
+        getTodoListById: function (todoListId) {
+            if (todoListId in this.todoListMap) {
+                return this.todoListMap[todoListId];
             }
-            return resultList
-        },
-
-        isExist: function (dataList) {
-            return (dataList.length > 0) ? true : false;
+            return {};
         },
     };
 }]);

@@ -11,26 +11,18 @@ angular.module('todoApp')
   .controller('TodoListDeleteModalController', ['$scope', '$dragon', '$dataHandler', '$location',
                                         function ($scope, $dragon, $dataHandler, $location) {
 
-    $scope.$on('syncTodoLists', function(event, data) {
-        $scope.todoLists = data;
-    });
-
     $scope.$on('syncSelectTodoListId', function(event, todoListId) {
         $scope.selectTodoListId = todoListId;
     });
 
-    $scope.getTodoList = function(todoListId) {
-        return $dataHandler.getDataById($scope.todoLists, todoListId);
-    }
-
-    $scope.getTodoItems = function(todoListId) {
-        return $dataHandler.getDataListById($scope.todoItems, 'todolist_id', todoListId);
+    $scope.todoLists = function() {
+        return $dataHandler.todoLists;
     }
 
     $scope.TodolistDelete = function(todoList) {
-        var todoItems = $scope.getTodoItems(todoList.id);
-        for (var item in todoItems) {
-            $dragon.delete('todo-item', todoItems[item]);
+        for (var key in todoList.items) {
+            console.log(todoList.items[key]);
+            $dragon.delete('todo-item', todoList.items[key]);
         }
         $dragon.delete('todo-list', todoList);
         $('.modal-backdrop').remove();

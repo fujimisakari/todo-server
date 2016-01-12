@@ -10,18 +10,11 @@
 angular.module('todoApp')
   .controller('SidebarController', ['$scope', '$dataHandler', function ($scope, $dataHandler) {
 
-    $scope.$on('syncTodoLists', function(event, data) {
-        $scope.todoLists = data;
-    });
-    $scope.$on('syncTodoItems', function(event, data) {
-        $scope.todoItems = data;
-    });
-    $scope.$on('syncSelectTodoListId', function(event, todoListId) {
-        $scope.selectTodoListId = todoListId;
-    });
+    $scope.todoLists = function() {
+        return $dataHandler.todoLists;
+    }
 
-    $scope.getTodoItemsCount = function(targetId) {
-        var todoItems = $dataHandler.getDataListById($scope.todoItems, 'todolist_id', targetId);
+    $scope.getTodoItemsCount = function(todoItems) {
         var count = 0;
         for (var key in todoItems) {
             if (!todoItems[key]['done']) {
@@ -33,8 +26,8 @@ angular.module('todoApp')
 
     $scope.getAllTodoItemsCount = function() {
         var count = 0;
-        for (var key in $scope.todoItems) {
-            if (!$scope.todoItems[key]['done']) {
+        for (var key in $dataHandler.todoItems) {
+            if (!$dataHandler.todoItems[key]['done']) {
                 count++;
             }
         }

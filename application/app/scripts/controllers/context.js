@@ -10,16 +10,17 @@
 angular.module('todoApp')
   .controller('ContextController', ['$scope', '$routeParams', '$dragon', '$dataHandler', '$location',
                               function ($scope, $routeParams, $dragon, $dataHandler, $location) {
-    $scope.$on('syncTodoLists', function(event, data) {
-        $scope.todoLists = data;
-    });
-    $scope.$on('syncTodoItems', function(event, data) {
-        $scope.todoItems = data;
-    });
 
     $scope.newTodoItem = {};
-    $scope.selectTodoListId = $routeParams['id'];
-    $scope.$parent.setTodoListId($scope.selectTodoListId);
+
+    $scope.todoLists = function() {
+        return $dataHandler.todoLists;
+    }
+
+    if ('id' in $routeParams) {
+        $scope.selectTodoListId = $routeParams['id'];
+        $scope.$parent.setTodoListId($scope.selectTodoListId);
+    }
 
     $scope.itemCreate = function(e) {
         if (e.which !== 13) {
@@ -34,26 +35,18 @@ angular.module('todoApp')
         $dragon.update('todo-item', item);
     }
 
-    $scope.getTodoList = function(todoListId) {
-        return $dataHandler.getDataById($scope.todoLists, todoListId);
-    }
-
-    $scope.getTodoItems = function(todoListId) {
-        return $dataHandler.getDataListById($scope.todoItems, 'todolist_id', todoListId);
-    }
-
-    $scope.isExistByDone = function(dataList) {
-        for (var key in dataList) {
-            if (dataList[key]['done']) {
+    $scope.isExistByDone = function(todoItems) {
+        for (var key in todoItems) {
+            if (todoItems[key]['done']) {
                 return true;
             }
         }
         return false;
     }
 
-    $scope.isExistByNotDone = function(dataList) {
-        for (var key in dataList) {
-            if (!dataList[key]['done']) {
+    $scope.isExistByNotDone = function(todoItems) {
+        for (var key in todoItems) {
+            if (!todoItems[key]['done']) {
                 return true;
             }
         }

@@ -30,61 +30,57 @@
 
 <!-- edit -->
 <div ng-controller="TodoListEditModalController">
-    <div ng-repeat="todoList in todoLists">
-        <span ng-if="todoList.id == selectTodoListId">
-            <div ng-init="setTodoList(todoList.id)" />
-            <div class="modal fade" id="todoListEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Edit TodoList</h4>
-                        </div>
-                        <form novalidate name="todoListForm" ng-submit="edit(todoList)">
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Name:</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="name" ng-model="editTodoList.name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="control-label">Description:</label>
-                                    <textarea class="form-control" id="message-text" ng-model="editTodoList.description"></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button ng-disabled="todoListForm.$invalid" type="submit" class="btn btn-primary">Edit</button>
-                            </div>
-                        </form>
+    <div ng-repeat="todoList in todoLists()" ng-if="todoList.id == selectTodoListId">
+        <div ng-init="setTodoList(todoList)" />
+        <div class="modal fade" id="todoListEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit TodoList</h4>
                     </div>
+                    <form novalidate name="todoListForm" ng-submit="edit(todoList)">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Name:</label>
+                                <input type="text" class="form-control" id="recipient-name" name="name" ng-model="editTodoList.name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="control-label">Description:</label>
+                                <textarea class="form-control" id="message-text" ng-model="editTodoList.description"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button ng-disabled="todoListForm.$invalid" type="submit" class="btn btn-primary">Edit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </span>
+        </div>
     </div>
 </div>
 
 <!-- Delete Confirm -->
 <div ng-controller="TodoListDeleteModalController">
-    <div ng-repeat="todoList in todoLists">
-        <span ng-if="todoList.id == selectTodoListId">
-            <div id="todoListDeleteModal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">TodoList Delete</h4>
-                        </div>
-                        <div class="modal-body">
-                            <h4>"{{ todoList.name }}" will be deleted forever.</h4>
-                            <p>You will not able be to undo this action.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" ng-click="TodolistDelete(todoList)">Delete</button>
-                        </div>
+    <div ng-repeat="todoList in todoLists()" ng-if="todoList.id == selectTodoListId">
+        <div id="todoListDeleteModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">TodoList Delete</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>"{{ todoList.name }}" will be deleted forever.</h4>
+                        <p>You will not able be to undo this action.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="TodolistDelete(todoList)">Delete</button>
                     </div>
                 </div>
             </div>
-        </span>
+        </div>
     </div>
 </div>
