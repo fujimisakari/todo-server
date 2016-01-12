@@ -13,9 +13,16 @@ angular.module('todoApp')
               var filteredList = [];
 
               list.forEach(function (obj) {
-                  var isMatch = queryWordArray.some(function (queryWord) {
-                      return ~obj[keyward].indexOf(queryWord);
-                  });
+
+                  var isMatch = false;
+                  for (var strKey in queryWordArray) {
+                      if (~obj[keyward].indexOf(queryWordArray[strKey])) {
+                          isMatch = true;
+                      } else {
+                          isMatch = false;
+                          break;
+                      }
+                  }
 
                   if (isMatch) {
                       filteredList.push(obj);
