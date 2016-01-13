@@ -2,11 +2,10 @@
 
 from django.db import models
 from swampdragon.models import SelfPublishModel
-from .schema import TodoListSchemaMixin, TodoItemSchemaMixin
 from .serializers import TodoListSerializer, TodoItemSerializer
 
 
-class TodoList(SelfPublishModel, TodoListSchemaMixin, models.Model):
+class TodoList(SelfPublishModel, models.Model):
     serializer_class = TodoListSerializer
     name = models.CharField(max_length=100)
     description = models.TextField(u'説明', blank=True, null=True)
@@ -14,7 +13,7 @@ class TodoList(SelfPublishModel, TodoListSchemaMixin, models.Model):
     updated_at = models.DateTimeField(u'更新日時', auto_now=True)
 
 
-class TodoItem(SelfPublishModel, TodoItemSchemaMixin, models.Model):
+class TodoItem(SelfPublishModel, models.Model):
     serializer_class = TodoItemSerializer
     text = models.CharField(max_length=100)
     todolist_id = models.IntegerField()
