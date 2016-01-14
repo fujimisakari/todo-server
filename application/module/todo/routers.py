@@ -3,7 +3,18 @@
 from swampdragon import route_handler
 from swampdragon.route_handler import ModelRouter
 from module.todo.models import TodoList, TodoItem
-from module.todo.serializers import TodoListSerializer, TodoItemSerializer
+from module.todo.serializers import UserSerializer, TodoListSerializer, TodoItemSerializer
+
+
+class UserRouter(ModelRouter):
+    route_name = 'user'
+    serializer_class = UserSerializer
+
+    def get_object(self, **kwargs):
+        return self.connection.user
+
+    def get_query_set(self, **kwargs):
+        pass
 
 
 class TodoListRouter(ModelRouter):
@@ -34,5 +45,6 @@ class TodoItemRouter(ModelRouter):
         # return self.model.objects.filter(todo_list__id=kwargs['list_id'])
 
 
+route_handler.register(UserRouter)
 route_handler.register(TodoListRouter)
 route_handler.register(TodoItemRouter)

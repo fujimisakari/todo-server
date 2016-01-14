@@ -50,6 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'module.middleware.AuthenticationMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -105,5 +106,6 @@ STATICFILES_DIRS = (
 )
 
 # SwampDragon settings
-SWAMP_DRAGON_CONNECTION = ('swampdragon.connections.sockjs_connection.DjangoSubscriberConnection', '/data')
+# SWAMP_DRAGON_CONNECTION = ('swampdragon.connections.sockjs_connection.DjangoSubscriberConnection', '/data')
+SWAMP_DRAGON_CONNECTION = ('swampdragon_auth.socketconnection.HttpDataConnection', '/data')
 DRAGON_URL = 'http://localhost:9999/'

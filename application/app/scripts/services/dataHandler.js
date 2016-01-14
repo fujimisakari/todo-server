@@ -3,6 +3,7 @@
 angular.module('todoApp')
   .factory('$dataHandler', [function () {
     return {
+        user: {},
         todoLists: [],
         todoListMap: {},
         todoItems: [],

@@ -28,6 +28,10 @@ angular.module('todoApp')
             $scope.todoItemMapper = new DataMapper(response.data);
         });
 
+        $dragon.getSingle('user', {}).then(function(response) {
+            $dataHandler.user = response.data;
+        });
+
         $dragon.getList('todo-list', {list_id: 1}).then(function(response) {
             $dataHandler.todoLists = response.data;
         });

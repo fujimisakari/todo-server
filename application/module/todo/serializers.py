@@ -2,6 +2,12 @@
 
 from swampdragon.serializers.model_serializer import ModelSerializer
 
+class UserSerializer(ModelSerializer):
+
+    class Meta:
+        model = 'auth.User'
+        publish_fields = ('username',)
+
 
 class TodoListSerializer(ModelSerializer):
 

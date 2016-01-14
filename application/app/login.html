@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="keyword" content="">
+        <link rel="shortcut icon" href={% static "img/favicon.ico" %}>
+
+        <title>TODO MANAGER</title>
+
+        <!-- Bootstrap CSS -->
+        <link href={% static "styles/bootstrap.min.css" %} rel="stylesheet">
+        <!-- bootstrap theme -->
+        <link href={% static "styles/bootstrap-theme.css" %} rel="stylesheet">
+        <!--external css-->
+        <!-- font icon -->
+        <link href={% static "styles/font-awesome.min.css" %} rel="stylesheet" />
+        <!-- Custom styles -->
+        <link href={% static "styles/style.css" %} rel="stylesheet">
+        <link href={% static "styles/style-responsive.css" %} rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+        <!--[if lt IE 9]>
+          <script src={% static "scripts/vendor/html5shiv.js" %}></script>
+          <script src={% static "scripts/vendor/respond.min.js" %}></script>
+          <script src={% static "scripts/vendor/lte-ie7.js" %}></script>
+        <![endif]-->
+    </head>
+</head>
+
+<body class="login-img3-body">
+    <div class="container">
+        <form class="login-form" method="POST" action="login">
+            <div class="login-wrap">
+                <p class="login-img"><i class="fa fa-lock"></i></p>
+                {% if form.errors %}
+                    <div class="error notification">
+                       <div>ユーザー名もしくはパスワードが正しくありません。</div>
+                    </div>
+                {% endif %}
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <label class="checkbox">
+                    <!-- <input type="checkbox" value="remember-me"> Remember me
+                         <span class="pull-right"> <a href="#"> Forgot Password?</a></span> -->
+                </label>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Sing in</button>
+                <!-- <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button> -->
+            </div>
+            <input type="hidden" name="next" value="/" />
+            {% csrf_token %}
+        </form>
+    </div>
+</body>
+
+</html>
