@@ -10,6 +10,7 @@
 angular.module('todoApp')
   .controller('SearchController', ['$scope', '$routeParams', '$dragon', '$dataHandler', 'customSearch',
                               function ($scope, $routeParams, $dragon, $dataHandler, customSearch) {
+    initializeJS();
 
     $scope.searchWord = $routeParams['searchWord'];
 

@@ -31,6 +31,9 @@
         <!-- nice scroll -->
         <script src={% static "scripts/vendor/jquery.nicescroll.js" %}></script>
 
+        <!--custome script for all page-->
+        <script src={% static "scripts/vendor/scripts.js" %}></script>
+
         <!-- angular -->
         <script src={% static "scripts/vendor/angular.min.js" %}></script>
         <script src={% static "scripts/vendor/angular-animate.min.js" %}></script>
@@ -58,12 +61,5 @@
         <script src={% static "scripts/controllers/todolist-edit-modal.js" %}></script>
         <script src={% static "scripts/controllers/todolist-delete-modal.js" %}></script>
 
-        <!--custome script for all page-->
-        <script src={% static "scripts/vendor/scripts.js" %}></script>
-        <script type="text/javascript">
-            $(window).load(function(){
-                initializeJS();
-            });
-        </script>
     </body>
 {% endblock %}

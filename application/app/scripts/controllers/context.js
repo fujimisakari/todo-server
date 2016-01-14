@@ -10,6 +10,7 @@
 angular.module('todoApp')
   .controller('ContextController', ['$scope', '$routeParams', '$dragon', '$dataHandler', '$location',
                               function ($scope, $routeParams, $dragon, $dataHandler, $location) {
+    initializeJS();
 
     $scope.newTodoItem = {};
 
