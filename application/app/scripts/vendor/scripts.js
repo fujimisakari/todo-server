@@ -7,8 +7,21 @@ function initializeJS() {
     jQuery('.popovers').popover();
 
     //custom scrollbar
+    $('.navi-scroll-area').css("height", window.innerHeight - 115 + "px");
+    $('.main-scroll-area').css("height", window.innerHeight - 75 + "px");
+
+    var timer = false;
+    $(window).resize(function() {
+        if (timer !== false) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(function() {
+            $('.navi-scroll-area').css("height", window.innerHeight - 115 + "px");
+            $('.main-scroll-area').css("height", window.innerHeight - 75 + "px");
+        }, 100);
+    });
         //for html
-    jQuery("html").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', zindex: '1000', scrollspeed: 50});
+    // jQuery("html").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', zindex: '1000', scrollspeed: 50});
         //for sidebar
     // jQuery("html #sidebar").niceScroll({styler:"fb",cursorcolor:"#A4AABA", cursorwidth: '8', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: '', scrollspeed: 50});
     //     // for scroll panel
@@ -85,7 +98,6 @@ function initializeJS() {
             }, 2000)
         })
     }
-
 }
 
 // jQuery(document).ready(function(){

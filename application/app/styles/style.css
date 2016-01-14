@@ -16,6 +16,7 @@ body {
     padding: 0px !important;
     margin: 0px !important;
     font-size:14px !important;
+    overflow: hidden;
 }
 h1,h2,h3,h4,h5{
     font-weight: 300;
@@ -268,14 +269,20 @@ table tr th { color: #688a7e;}
     display: inline;
 }
 
+.navi-scroll-area {
+    margin-top: 60px;
+    margin-bottom: 55px;
+    overflow-y: auto;
+}
+
 ul.sidebar-menu , ul.sidebar-menu li ul.sub{
     margin: -2px 0 0;
     padding: 0;
 }
 
 ul.sidebar-menu {
-    margin-top: 60px;
-    margin-bottom: 55px;
+    /* margin-top: 60px; */
+    /* margin-bottom: 55px; */
 }
 
 #sidebar > ul > li > ul.sub {
@@ -4984,6 +4991,10 @@ span.customSelect.changed {
 }
 
 /*My Custom Select*/
+
+.main-scroll-area {
+    overflow-y: auto;
+}
 
 ul.sidebar-menu li .todoItemsCount {
     margin-right: 10px;
