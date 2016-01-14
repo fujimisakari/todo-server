@@ -19,7 +19,7 @@
                         <span class="todoItem-add-i">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <input class="todoItem-form" placeholder="Add a To-do.." type="text" ng-model="newTodoItem.text" required>
+                        <input class="todoItem-form" placeholder="Add a To-do.." type="text" ng-model="newTodoItem.name" required>
                     </form>
 
                     <!-- Todo List -->
@@ -31,7 +31,7 @@
                                 </span>
 
                                 <span class="todoItem-title">
-                                    {{ todoItem.text }}
+                                    {{ todoItem.name }}
                                 </span>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                     </span>
 
                                     <span class="todoItem-title todoItem-done">
-                                        {{ todoItem.text }}
+                                        {{ todoItem.name }}
                                     </span>
                                 </div>
                             </div>

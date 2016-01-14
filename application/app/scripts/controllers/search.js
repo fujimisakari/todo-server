@@ -18,11 +18,11 @@ angular.module('todoApp')
     }
 
     $scope.getTodoItems = function(todoItems) {
-        return customSearch.filter(todoItems, $scope.searchWord, 'text');
+        return customSearch.filter(todoItems, $scope.searchWord, 'name');
     }
 
     $scope.isExist = function(todoItems) {
-        var items = customSearch.filter(todoItems, $scope.searchWord, 'text');
+        var items = customSearch.filter(todoItems, $scope.searchWord, 'name');
         var count = 0;
         for (var itemKey in items) {
             if (!items[itemKey].done) {

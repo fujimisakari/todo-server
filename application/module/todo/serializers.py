@@ -2,6 +2,7 @@
 
 from swampdragon.serializers.model_serializer import ModelSerializer
 
+
 class UserSerializer(ModelSerializer):
 
     class Meta:
@@ -21,5 +22,5 @@ class TodoItemSerializer(ModelSerializer):
 
     class Meta:
         model = 'todo.TodoItem'
-        publish_fields = ('todolist_id', 'done', 'text')
-        update_fields = ('todolist_id', 'done', 'text')
+        publish_fields = ('todolist_id', 'done', 'name', 'updated_at')
+        update_fields = ('todolist_id', 'done', 'name')

@@ -9,6 +9,5 @@ class AuthenticationMiddleware(object):
         if request.user.is_authenticated():
             if request.path.startswith('/login'):
                 return redirect('/')
-        else:
-            if not request.path.startswith('/login'):
-                return redirect('login')
+        elif request.path == '/':
+            return redirect('login')

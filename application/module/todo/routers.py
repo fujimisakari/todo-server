@@ -23,13 +23,16 @@ class TodoListRouter(ModelRouter):
     model = TodoList
 
     def get_initial(self, verb, **kwargs):
+        kwargs['user_id'] = self.connection.user.id
         return kwargs
 
     def get_object(self, **kwargs):
-        return self.model.objects.get(pk=kwargs['id'])
+        user_list = self.model.objects.filter(id=kwargs['id'], user_id=self.connection.user.id)
+        return user_list[0] if user_list else None
 
     def get_query_set(self, **kwargs):
-        return self.model.objects.all()
+        user_id = self.connection.user.id
+        return self.model.objects.filter(user_id=user_id)
 
 
 class TodoItemRouter(ModelRouter):
@@ -37,12 +40,17 @@ class TodoItemRouter(ModelRouter):
     serializer_class = TodoItemSerializer
     model = TodoItem
 
+    def get_initial(self, verb, **kwargs):
+        kwargs['user_id'] = self.connection.user.id
+        return kwargs
+
     def get_object(self, **kwargs):
-        return self.model.objects.get(pk=kwargs['id'])
+        user_list = self.model.objects.filter(id=kwargs['id'], user_id=self.connection.user.id)
+        return user_list[0] if user_list else None
 
     def get_query_set(self, **kwargs):
-        return self.model.objects.all()
-        # return self.model.objects.filter(todo_list__id=kwargs['list_id'])
+        user_id = self.connection.user.id
+        return self.model.objects.filter(user_id=user_id)
 
 
 route_handler.register(UserRouter)
