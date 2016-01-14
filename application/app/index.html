@@ -1,35 +1,7 @@
+{% extends "base.html" %}
 {% load static swampdragon_tags %}
 
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="keyword" content="">
-        <link rel="shortcut icon" href={% static "img/favicon.ico" %}>
-
-        <title>TODO MANAGER</title>
-
-        <!-- Bootstrap CSS -->
-        <link href={% static "styles/bootstrap.min.css" %} rel="stylesheet">
-        <!-- bootstrap theme -->
-        <link href={% static "styles/bootstrap-theme.css" %} rel="stylesheet">
-        <!--external css-->
-        <!-- font icon -->
-        <link href={% static "styles/font-awesome.min.css" %} rel="stylesheet" />
-        <!-- Custom styles -->
-        <link href={% static "styles/style.css" %} rel="stylesheet">
-        <link href={% static "styles/style-responsive.css" %} rel="stylesheet" />
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-        <!--[if lt IE 9]>
-          <script src={% static "scripts/vendor/html5shiv.js" %}></script>
-          <script src={% static "scripts/vendor/respond.min.js" %}></script>
-          <script src={% static "scripts/vendor/lte-ie7.js" %}></script>
-        <![endif]-->
-    </head>
-
+{% block body_contents %}
     <body ng-app="todoApp" ng-controller="PageController">
 
         <section id="container" class="">
@@ -94,4 +66,4 @@
             });
         </script>
     </body>
-</html>
+{% endblock %}
