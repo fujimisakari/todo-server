@@ -36,8 +36,11 @@
             <div class="login-wrap">
                 <p class="login-img"><i class="fa fa-lock"></i></p>
                 {% if form.errors %}
-                    <div class="error notification">
-                       <div>ユーザー名もしくはパスワードが正しくありません。</div>
+                    <div class="alert alert-block alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        Incorrect username or password.
                     </div>
                 {% endif %}
                 <div class="input-group">
