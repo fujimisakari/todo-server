@@ -26,6 +26,10 @@ class TodoListRouter(ModelRouter):
         kwargs['user_id'] = self.connection.user.id
         return kwargs
 
+    def get_subscription_contexts(self, **kwargs):
+        kwargs['user_id'] = self.connection.user.id
+        return kwargs
+
     def get_object(self, **kwargs):
         user_list = self.model.objects.filter(id=kwargs['id'], user_id=self.connection.user.id)
         return user_list[0] if user_list else None
@@ -41,6 +45,10 @@ class TodoItemRouter(ModelRouter):
     model = TodoItem
 
     def get_initial(self, verb, **kwargs):
+        kwargs['user_id'] = self.connection.user.id
+        return kwargs
+
+    def get_subscription_contexts(self, **kwargs):
         kwargs['user_id'] = self.connection.user.id
         return kwargs
 

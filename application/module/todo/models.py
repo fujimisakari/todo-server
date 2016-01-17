@@ -22,7 +22,8 @@ class TodoItem(SelfPublishModel, models.Model):
     user_id = models.IntegerField()
     name = models.CharField(max_length=100)
     todolist_id = models.IntegerField()
-    done = models.BooleanField(default=False)
+    done = models.BooleanField(u'完了フラグ', default=False)
+    note = models.TextField(u'ノート', blank=True, null=True)
     created_at = models.DateTimeField(u'作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(u'更新日時', auto_now=True)
 
