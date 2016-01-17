@@ -12,15 +12,15 @@
         </section>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-        <script>
-            !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-            (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-            r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-            }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        <!-- <script>
+             !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+             (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+             r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+             }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-XXXXX-X');
-            ga('send', 'pageview');
-        </script>
+             ga('create', 'UA-XXXXX-X');
+             ga('send', 'pageview');
+             </script> -->
 
         <!-- jQery -->
         <script src={% static "scripts/vendor/jquery.js" %}></script>
@@ -44,9 +44,9 @@
         <script src={% static "scripts/vendor/angular-touch.min.js" %}></script>
 
         {% swampdragon_settings %}
-        <script src="{% static 'swampdragon/js/dist/swampdragon.min.js' %}"></script>
-        <script src="{% static 'swampdragon/js/dist/datamapper.js' %}"></script>
-        <script src="{% static 'swampdragon/js/angular/services.js' %}"></script>
+        <script src={% static "scripts/vendor/swampdragon/js/dist/swampdragon.min.js" %}></script>
+        <script src={% static "scripts/vendor/swampdragon/js/dist/datamapper.js" %}></script>
+        <script src={% static "scripts/vendor/swampdragon/js/angular/services.js" %}></script>
 
         <!-- angular app -->
         <script src={% static "scripts/app.js" %}></script>

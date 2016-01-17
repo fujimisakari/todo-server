@@ -58,7 +58,7 @@ ROOT_URLCONF = 'urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'application/app')],
+        'DIRS': [os.path.join(BASE_DIR, '../application/app')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,10 +102,9 @@ USE_TZ = True
 
 STATIC_URL = '/app/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'application/app'),
+    os.path.join(BASE_DIR, '../application/app'),
 )
 
 # SwampDragon settings
 # SWAMP_DRAGON_CONNECTION = ('swampdragon.connections.sockjs_connection.DjangoSubscriberConnection', '/data')
 SWAMP_DRAGON_CONNECTION = ('swampdragon_auth.socketconnection.HttpDataConnection', '/data')
-DRAGON_URL = 'http://localhost:9999/'
