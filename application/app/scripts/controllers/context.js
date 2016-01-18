@@ -21,6 +21,8 @@ angular.module('todoApp')
     if ('id' in $routeParams) {
         $scope.selectTodoListId = $routeParams['id'];
         $scope.$parent.setTodoListId($scope.selectTodoListId);
+    } else {
+        $scope.$parent.setTodoListId(0);
     }
 
     $scope.itemCreate = function(e) {
