@@ -27,5 +27,5 @@ def deploy():
         with cd('todo'):
             run('sudo -u www-data git pull')
             sudo('apache2ctl graceful')
-            sudo('supervisorctl restart websocket-server_0')
-            sudo('supervisorctl restart websocket-server_1')
+            sudo('supervisorctl restart websocket-server:websocket-server_0')
+            sudo('supervisorctl restart websocket-server:websocket-server_1')
