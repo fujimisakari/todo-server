@@ -1,0 +1,50 @@
+<div ng-controller="ItemDetailController">
+    <div class="col-lg-4">
+        <section class="panel itemDetail">
+            <header class="panel-heading">
+               <div class="header-left">Todo Detail</div>
+               <div class="header-right" ng-click="todoItemClose()"><i class="fa fa-times"></i></div>
+            </header>
+            <div class="panel-body">
+                <form novalidate class="form-horizontal" name="todoItemForm" ng-submit="todoItemEdit()">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  ng-model="editTodoItem.name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Note</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="8" ng-model="editTodoItem.note"></textarea>
+                        </div>
+                    </div>
+                    <div class="itemDetail-footer">
+                        <button ng-disabled="todoItemForm.$invalid" type="submit" class="btn btn-primary">Edit</button>
+                        　
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#todoItemDeleteModal">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="todoItemDeleteModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">TodoItem Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>"{{ todoItem.name }}" will be deleted forever.</h4>
+                    <p>You will not able be to undo this action.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="todoItemDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

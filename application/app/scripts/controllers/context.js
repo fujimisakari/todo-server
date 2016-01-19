@@ -10,19 +10,18 @@
 angular.module('todoApp')
   .controller('ContextController', ['$scope', '$routeParams', '$dragon', '$dataHandler', '$location',
                               function ($scope, $routeParams, $dragon, $dataHandler, $location) {
-    initializeJS();
-
-    $scope.newTodoItem = {};
 
     $scope.todoLists = function() {
         return $dataHandler.todoLists;
     }
 
-    if ('id' in $routeParams) {
-        $scope.selectTodoListId = $routeParams['id'];
-        $scope.$parent.setTodoListId($scope.selectTodoListId);
-    } else {
-        $scope.$parent.setTodoListId(0);
+    initializeJS();
+    $scope.newTodoItem = {};
+    $scope.selectTodoListId = ('listId' in $routeParams) ? $routeParams['listId'] : 0;
+    $scope.$parent.setTodoListId($scope.selectTodoListId);
+
+    if ('itemId' in $routeParams) {
+        $scope.todoItem = $dataHandler.getTodoItemById($routeParams['itemId']);
     }
 
     $scope.itemCreate = function(e) {
@@ -54,6 +53,10 @@ angular.module('todoApp')
             }
         }
         return false;
+    }
+
+    $scope.showDetail = function(itemListId, itemId) {
+        $location.path('todoitem/' + itemListId + '/' + itemId);
     }
 
 }]);

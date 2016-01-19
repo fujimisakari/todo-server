@@ -2,7 +2,8 @@
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
-            <div class="col-lg-12">
+
+            <div ng-class="todoItem ? 'col-lg-8' : 'col-lg-12'">
                 <div class="main-scroll-area">
                     <!-- Header Title -->
                     <h3 class="page-header"><i class="fa fa-asterisk"></i> ALL</h3>
@@ -11,7 +12,7 @@
                     <div ng-repeat="todoList in todoLists()" ng-if="isExistByNotDone(todoList.items)">
                         <div class="todoList-title-small">{{ todoList.name }}</div>
                         <div ng-repeat="item in todoList.items">
-                            <div class="todoItem-body" ng-if="!item.done">
+                            <div class="todoItem-body" ng-if="!item.done" ng-dblclick="showDetail(0, item.id)">
                                <span class="todoItem-checkbox" ng-click="itemDone(item)">
                                    <i class="fa fa-square-o"></i>
                                </span>
@@ -24,6 +25,8 @@
                     </div>
                 </div>
             </div>
+
+            <div ng-if="todoItem" ng-include="'app/views/detail.html'"></div>
         </div>
     </section>
 </section>

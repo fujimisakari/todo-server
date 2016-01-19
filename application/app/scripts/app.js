@@ -20,19 +20,30 @@ angular.module('todoApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/views/todolist_all.html',
         controller: 'ContextController',
-        controllerAs: 'context'
+        controllerAs: 'context',
+        templateUrl: 'app/views/todolist_all.html'
       })
-      .when('/todolist/:id', {
-        templateUrl: 'app/views/todolist.html',
+      .when('/todolist/:listId', {
         controller: 'ContextController',
-        controllerAs: 'context'
+        controllerAs: 'context',
+        templateUrl: 'app/views/todolist.html'
+      })
+      .when('/todoitem/:listId/:itemId', {
+        controller: 'ContextController',
+        controllerAs: 'context',
+        templateUrl: function(params) {
+            if (params.listId > 0) {
+                return 'app/views/todolist.html';
+            } else {
+                return 'app/views/todolist_all.html';
+            }
+        }
       })
       .when('/search/:searchWord', {
-        templateUrl: 'app/views/search.html',
         controller: 'SearchController',
-        controllerAs: 'search'
+        controllerAs: 'search',
+        templateUrl: 'app/views/search.html'
       })
       .otherwise({
         redirectTo: '/'

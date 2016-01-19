@@ -22,5 +22,5 @@ class TodoItemSerializer(ModelSerializer):
 
     class Meta:
         model = 'todo.TodoItem'
-        publish_fields = ('todolist_id', 'done', 'name', 'updated_at')
-        update_fields = ('todolist_id', 'done', 'name')
+        publish_fields = ('todolist_id', 'done', 'name', 'note', 'updated_at')
+        update_fields = ('todolist_id', 'done', 'name', 'note')

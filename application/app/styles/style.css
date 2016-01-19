@@ -5117,3 +5117,32 @@ ul.sidebar-menu li .todoItemsCount {
     font-size: 18px;
     padding-right: 6px;
 }
+
+.itemDetail {
+    margin-top: 70px;
+}
+
+.itemDetail .header-left {
+    float: left;
+}
+
+.itemDetail .header-right {
+    float: right;
+}
+
+.panel .panel-heading i {
+    color: #a4a4a4;
+    width: 15px;
+    font-size: 16px;
+    border-right: 0px;
+    opacity: 0.8;
+}
+
+.itemDetail .itemDetail-footer {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.itemDetail .itemDetail-footer .btn {
+    width: 100px;
+}

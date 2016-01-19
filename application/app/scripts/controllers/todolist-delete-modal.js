@@ -21,7 +21,6 @@ angular.module('todoApp')
 
     $scope.TodolistDelete = function(todoList) {
         for (var key in todoList.items) {
-            console.log(todoList.items[key]);
             $dragon.delete('todo-item', todoList.items[key]);
         }
         $dragon.delete('todo-list', todoList);

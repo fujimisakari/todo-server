@@ -2,7 +2,7 @@
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
-            <div class="col-lg-12">
+            <div ng-class="todoItem ? 'col-lg-8' : 'col-lg-12'">
                 <div class="main-scroll-area">
 
                     <div ng-repeat="todoList in todoLists()" ng-if="todoList.id == selectTodoListId">
@@ -26,7 +26,7 @@
                         <!-- Todo List -->
                         <div ng-if="isExistByNotDone(todoList.items)">
                             <div ng-repeat="todoItem in todoList.items">
-                                <div class="todoItem-body" ng-if="!todoItem.done">
+                                <div class="todoItem-body" ng-if="!todoItem.done" ng-dblclick="showDetail(selectTodoListId, todoItem.id)">
                                     <span class="todoItem-checkbox" ng-click="itemDone(todoItem)">
                                         <i class="fa fa-square-o"></i>
                                     </span>
@@ -53,7 +53,7 @@
                             <!-- Todo List -->
                             <div ng-show="isReplyFormOpen" id="replyForm">
                                 <div ng-repeat="todoItem in todoList.items">
-                                    <div class="todoItem-body" ng-if="todoItem.done">
+                                    <div class="todoItem-body" ng-if="todoItem.done" ng-dblclick="showDetail(selectTodoListId, todoItem.id)">
                                         <span class="todoItem-checkbox" ng-click="itemDone(todoItem)">
                                             <i class="fa fa-check-square-o done"></i>
                                         </span>
@@ -70,6 +70,9 @@
 
                 </div>
             </div>
+
+            <div ng-if="todoItem" ng-include="'app/views/detail.html'"></div>
+
         </div>
     </section>
 </section>
