@@ -1,6 +1,6 @@
 Django + SwampDragon + AngularJS + Websocketを利用したTodo管理サイト
 
-## 環境構築
+### 環境構築
 
 ```bash
 cd todo-server/application
