@@ -1,2 +1,5 @@
-*.pyc
-.python-version
+.env.local
+.env.develop
+.env.production
+
+*.pid
