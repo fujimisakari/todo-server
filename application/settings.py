@@ -58,7 +58,7 @@ ROOT_URLCONF = 'urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../application/app')],
+        'DIRS': [os.path.join(BASE_DIR, 'application/app')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,9 +98,16 @@ USE_TZ = True
 
 STATIC_URL = '/app/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../application/app'),
+    os.path.join(BASE_DIR, 'application/app'),
 )
 
 # SwampDragon settings
 # SWAMP_DRAGON_CONNECTION = ('swampdragon.connections.sockjs_connection.DjangoSubscriberConnection', '/data')
 SWAMP_DRAGON_CONNECTION = ('swampdragon_auth.socketconnection.HttpDataConnection', '/data')
+
+DRAGON_URL = os.environ.get('DRAGON_URL')
+SWAMP_DRAGON_HOST = os.environ.get('SWAMP_DRAGON_HOST')
+SWAMP_DRAGON_REDIS_HOST = os.environ.get('SWAMP_DRAGON_REDIS_HOST')
+SESSION_COOKIE_DOMAIN = os.environ.get('SESSION_COOKIE_DOMAIN')
+LANGUAGE_COOKIE_DOMAIN = os.environ.get('LANGUAGE_COOKIE_DOMAIN')
+CSRF_COOKIE_DOMAIN = os.environ.get('CSRF_COOKIE_DOMAIN')
