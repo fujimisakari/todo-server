@@ -5,8 +5,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV WERKZEUG_DEBUG_PIN off
 ENV DOCKER true
 
-RUN mkdir -p /usr/src/todo
+RUN mkdir /usr/src/todo
 RUN mkdir /var/run/todo
+
+WORKDIR /usr/src/todo
 
 RUN apt-get update
 RUN apt-get install -y mysql-client vim net-tools telnet curl
