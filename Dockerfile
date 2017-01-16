@@ -5,8 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV WERKZEUG_DEBUG_PIN off
 ENV DOCKER true
 
-RUN mkdir -p /usr/src/todo_dev
-RUN mkdir -p /usr/src/todo_prod
+RUN mkdir -p /usr/src/todo
 RUN mkdir /var/run/todo
 
 RUN apt-get update
